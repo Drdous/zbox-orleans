@@ -7,7 +7,7 @@ using Xunit;
 namespace ZboxOrleans.Tests.Grains;
 
 [Collection("Sequential")]
-public class BaseGrainTest : IDisposable
+public abstract class BaseGrainTest : IDisposable
 {
     private IHost? _siloHost;
     private IHost? _clientHost;

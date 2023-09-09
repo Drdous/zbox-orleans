@@ -10,6 +10,7 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.Hosting" />
       <PackageReference Include="Microsoft.Extensions.Logging.Console" />
+      <PackageReference Include="Microsoft.Orleans.Persistence.AzureStorage" />
       <PackageReference Include="Microsoft.Orleans.Server" />
     </ItemGroup>
 
