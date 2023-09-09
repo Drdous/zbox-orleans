@@ -15,7 +15,6 @@ public sealed class UserPersistedGrain : Grain, IUserPersistedGrain
         IPersistentState<UserProfileState> userProfileState)
     {
         _userProfileState = userProfileState;
-        
     }
     
     public Task<string> GetNameAsync() => Task.FromResult(_userProfileState.State.Name);
