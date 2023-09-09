@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12A741F7-8368-4C38-B1CD-7134B28D26D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{563858E5-7E3C-4219-91F9-71A37AAF0E2B}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+		.dockerignore = .dockerignore
+		README.md = README.md
+		Directory.Packages.props = Directory.Packages.props
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.Grains", "src\ZboxOrleans.Grains\ZboxOrleans.Grains.csproj", "{8736C00B-7856-4A73-BB84-C9DC96BAD85F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.Silo", "src\ZboxOrleans.Silo\ZboxOrleans.Silo.csproj", "{BC561EC3-7464-437D-ABE1-7C12B5D20F77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.GrainInterfaces", "src\ZboxOrleans.GrainInterfaces\ZboxOrleans.GrainInterfaces.csproj", "{ED802857-D036-4BEB-8550-A2CB093AC589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.Client", "src\ZboxOrleans.Client\ZboxOrleans.Client.csproj", "{B9E1DD0E-29B7-4258-BEEE-8BE6736D1279}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D71509D0-E7F5-4B0B-9183-66F41C9697F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.Tests", "ZboxOrleans.Tests\ZboxOrleans.Tests.csproj", "{F4AC7310-403C-43AD-84A0-20CBCC354786}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8736C00B-7856-4A73-BB84-C9DC96BAD85F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8736C00B-7856-4A73-BB84-C9DC96BAD85F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8736C00B-7856-4A73-BB84-C9DC96BAD85F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8736C00B-7856-4A73-BB84-C9DC96BAD85F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC561EC3-7464-437D-ABE1-7C12B5D20F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC561EC3-7464-437D-ABE1-7C12B5D20F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC561EC3-7464-437D-ABE1-7C12B5D20F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC561EC3-7464-437D-ABE1-7C12B5D20F77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED802857-D036-4BEB-8550-A2CB093AC589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED802857-D036-4BEB-8550-A2CB093AC589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED802857-D036-4BEB-8550-A2CB093AC589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED802857-D036-4BEB-8550-A2CB093AC589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9E1DD0E-29B7-4258-BEEE-8BE6736D1279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E1DD0E-29B7-4258-BEEE-8BE6736D1279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E1DD0E-29B7-4258-BEEE-8BE6736D1279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E1DD0E-29B7-4258-BEEE-8BE6736D1279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4AC7310-403C-43AD-84A0-20CBCC354786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4AC7310-403C-43AD-84A0-20CBCC354786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4AC7310-403C-43AD-84A0-20CBCC354786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4AC7310-403C-43AD-84A0-20CBCC354786}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8736C00B-7856-4A73-BB84-C9DC96BAD85F} = {12A741F7-8368-4C38-B1CD-7134B28D26D9}
+		{BC561EC3-7464-437D-ABE1-7C12B5D20F77} = {12A741F7-8368-4C38-B1CD-7134B28D26D9}
+		{ED802857-D036-4BEB-8550-A2CB093AC589} = {12A741F7-8368-4C38-B1CD-7134B28D26D9}
+		{B9E1DD0E-29B7-4258-BEEE-8BE6736D1279} = {12A741F7-8368-4C38-B1CD-7134B28D26D9}
+		{F4AC7310-403C-43AD-84A0-20CBCC354786} = {D71509D0-E7F5-4B0B-9183-66F41C9697F8}
+	EndGlobalSection
+EndGlobal
