@@ -16,6 +16,7 @@
     <ItemGroup>
       <PackageReference Include="FluentAssertions" />
       <PackageReference Include="Microsoft.NET.Test.Sdk" />
+      <PackageReference Include="Microsoft.Orleans.TestingHost" />
       <PackageReference Include="xunit" />
     </ItemGroup>
 

@@ -11,21 +11,31 @@ public abstract class BaseGrainTest : IDisposable
 {
     private IHost? _siloHost;
     private IHost? _clientHost;
+    protected IGrainFactory? GrainFactory;
 
     protected async Task<TGrain> GetGrainAsync<TGrain>(Guid primaryKey) where TGrain : IGrainWithGuidKey
     {
+        await InitializeIfNotExist();
+        return GrainFactory!.GetGrain<TGrain>(primaryKey);
+    }
+
+    protected async Task InitializeIfNotExist()
+    {
         if (_siloHost is null || _clientHost is null)
         {
-            _siloHost = SiloHostBuilder.Create().Build();
-            _clientHost = ClientHostBuilder.Create().Build();
-            
-            await _siloHost.StartAsync();
-            await _clientHost.StartAsync();
+            await InitializeHosts();
         }
         
-        var client = _clientHost.Services.GetRequiredService<IGrainFactory>();
+        GrainFactory ??= _clientHost!.Services.GetRequiredService<IGrainFactory>();
+    }
 
-        return client.GetGrain<TGrain>(primaryKey);
+    private async Task InitializeHosts()
+    {
+        _siloHost = SiloHostBuilder.Create().Build();
+        _clientHost = ClientHostBuilder.Create().Build();
+            
+        await _siloHost.StartAsync();
+        await _clientHost.StartAsync();
     }
 
     public void Dispose()
