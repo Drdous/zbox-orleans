@@ -15,8 +15,8 @@ public sealed class UserPersistedGrainTest : BaseGrainTest
     {
         var grain = await GetGrainAsync<IUserPersistedGrain>(_primaryKeyGuid);
 
-        await grain.SetNameAsync(TestName);
-        (await grain.GetNameAsync()).Should().Be(TestName);
+        await grain.SetUserNameAsync(TestName);
+        (await grain.GetUserNameAsync()).Should().Be(TestName);
     }
 
     [Fact]
@@ -24,6 +24,6 @@ public sealed class UserPersistedGrainTest : BaseGrainTest
     {
         var grain = await GetGrainAsync<IUserPersistedGrain>(_primaryKeyGuid);
 
-        (await grain.GetNameAsync()).Should().Be(TestName);
+        (await grain.GetUserNameAsync()).Should().Be(TestName);
     }
 }

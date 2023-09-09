@@ -5,6 +5,6 @@ namespace ZboxOrleans.GrainInterfaces;
 /// </summary>
 public interface IUserPersistedGrain : IGrainWithGuidKey
 {
-    Task<string> GetNameAsync();
-    Task SetNameAsync(string name);
+    Task<string> GetUserNameAsync();
+    Task SetUserNameAsync(string name);
 }

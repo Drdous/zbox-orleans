@@ -5,6 +5,7 @@ using ZboxOrleans.Grains.States;
 
 namespace ZboxOrleans.Grains;
 
+// 4. Stavový grain (s persistencí): Implementujte stavový grain, který svůj stav persistuje. Můžete využít Azure CosmosDB nebo Azure Blob Storage pro persistenci stavu grainu.
 public sealed class UserPersistedGrain : Grain, IUserPersistedGrain
 {
     private readonly IPersistentState<UserProfileState> _userProfileState;
@@ -17,9 +18,9 @@ public sealed class UserPersistedGrain : Grain, IUserPersistedGrain
         _userProfileState = userProfileState;
     }
     
-    public Task<string> GetNameAsync() => Task.FromResult(_userProfileState.State.Name);
+    public Task<string> GetUserNameAsync() => Task.FromResult(_userProfileState.State.Name);
 
-    public async Task SetNameAsync(string name)
+    public async Task SetUserNameAsync(string name)
     {
         _userProfileState.State.Name = name;
         await _userProfileState.WriteStateAsync();
