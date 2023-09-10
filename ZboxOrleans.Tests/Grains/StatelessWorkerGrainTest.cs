@@ -14,7 +14,7 @@ public sealed class StatelessWorkerGrainTest : BaseGrainTest
         _testOutputHelper = testOutputHelper;
     }
 
-    // Throughput around 700k requests per second
+    // Throughput around 700k requests per second with only GetGrain and around 350k with method call
     [Fact]
     public async Task TestStatelessWorkerGrainMaximumThroughput_WriteInfoMessageAsOutput()
     {
@@ -25,9 +25,10 @@ public sealed class StatelessWorkerGrainTest : BaseGrainTest
         var sw = new Stopwatch();
         sw.Start();
         
-        Parallel.For(0, numberOfCalls, new ParallelOptions { MaxDegreeOfParallelism = 1000 }, _ =>
+        Parallel.For(0, numberOfCalls, new ParallelOptions { MaxDegreeOfParallelism = 1000 }, async _ =>
         {
-            GrainFactory!.GetGrain<IStatelessWorkerGrain>(Guid.NewGuid());
+            var grain = GrainFactory!.GetGrain<IStatelessWorkerGrain>(Guid.NewGuid());
+            await grain.GetActualDateTick();
         });
         
         sw.Stop();

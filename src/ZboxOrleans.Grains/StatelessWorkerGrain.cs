@@ -11,8 +11,8 @@ namespace ZboxOrleans.Grains;
 [StatelessWorker]
 public sealed class StatelessWorkerGrain : Grain, IStatelessWorkerGrain
 {
-    public Task<int> GetRandomIntAsync()
+    public Task<long> GetActualDateTick()
     {
-        return Task.FromResult(new Random().Next());
+        return Task.FromResult(DateTime.UtcNow.Ticks);
     }
 }
