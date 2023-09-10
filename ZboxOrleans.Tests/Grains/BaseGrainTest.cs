@@ -24,11 +24,16 @@ public abstract class BaseGrainTest : IDisposable
         if (_siloHost is null || _clientHost is null)
         {
             await InitializeHosts();
+            GrainFactory ??= GetService<IGrainFactory>();
         }
-        
-        GrainFactory ??= _clientHost!.Services.GetRequiredService<IGrainFactory>();
     }
-
+    
+    protected T GetService<T>() where T : notnull
+    {
+        return _clientHost!.Services.GetRequiredService<T>();
+    }
+ 
+    // I know it's not the right way to test (dependency on running services, azurite..), but it's better for me in terms of debugging purposes and looking to the blob storage.
     private async Task InitializeHosts()
     {
         _siloHost = SiloHostBuilder.Create().Build();

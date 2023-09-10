@@ -12,9 +12,9 @@ public sealed class UserFacetsGrain : Grain, IUserPersistedGrain, IUserAccountGr
     private readonly IPersistentState<UserAccountState> _userAccountState;
 
     public UserFacetsGrain(
-        [PersistentState(PersistenceConstants.StateNames.UserProfile, PersistenceConstants.ProviderNames.AzureBlobStorage)]
+        [PersistentState(Constants.StateNames.UserProfile, Constants.ProviderNames.AzureBlobStorage)]
         IPersistentState<UserProfileState> userProfileState,
-        [PersistentState(PersistenceConstants.StateNames.UserProfile, PersistenceConstants.ProviderNames.AzureBlobStorage)]
+        [PersistentState(Constants.StateNames.UserProfile, Constants.ProviderNames.AzureBlobStorage)]
         IPersistentState<UserAccountState> userAccountState)
     {
         _userProfileState = userProfileState;

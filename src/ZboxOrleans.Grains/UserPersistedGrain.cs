@@ -12,7 +12,7 @@ public sealed class UserPersistedGrain : Grain, IUserPersistedGrain
 
     // Note for me: State is not loaded when injected. It's loaded before OnActivateAsync() is called.
     public UserPersistedGrain(
-        [PersistentState(PersistenceConstants.StateNames.UserProfile, PersistenceConstants.ProviderNames.AzureBlobStorage)]
+        [PersistentState(Constants.StateNames.UserProfile, Constants.ProviderNames.AzureBlobStorage)]
         IPersistentState<UserProfileState> userProfileState)
     {
         _userProfileState = userProfileState;

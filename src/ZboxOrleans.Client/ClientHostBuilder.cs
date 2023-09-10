@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Orleans.Hosting;
 
 namespace ZboxOrleans.Client;
 
@@ -12,6 +11,7 @@ public static class ClientHostBuilder
             .UseOrleansClient(clientBuilder =>
             {
                 clientBuilder.UseLocalhostClustering();
+                clientBuilder.UseTransactions();
             })
             .ConfigureLogging(logging => logging.AddConsole())
             .UseConsoleLifetime();

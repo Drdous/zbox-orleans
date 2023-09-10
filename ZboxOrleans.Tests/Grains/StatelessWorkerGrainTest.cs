@@ -25,7 +25,7 @@ public sealed class StatelessWorkerGrainTest : BaseGrainTest
         var sw = new Stopwatch();
         sw.Start();
         
-        Parallel.For(0, numberOfCalls,  new ParallelOptions{MaxDegreeOfParallelism = 1000}, _ =>
+        Parallel.For(0, numberOfCalls, new ParallelOptions { MaxDegreeOfParallelism = 1000 }, _ =>
         {
             GrainFactory!.GetGrain<IStatelessWorkerGrain>(Guid.NewGuid());
         });

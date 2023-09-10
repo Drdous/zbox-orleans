@@ -17,11 +17,13 @@ public static class SiloHostBuilder
                     .ConfigureLogging(logging => logging.AddConsole());
                 
                 silo.AddAzureBlobGrainStorage(
-                    name: PersistenceConstants.ProviderNames.AzureBlobStorage,
+                    name: Constants.ProviderNames.AzureBlobStorage,
                     configureOptions: options =>
                     {
                         options.ConfigureBlobServiceClient(AzuriteConnection);
                     });
+
+                silo.UseTransactions();
             })
             .UseConsoleLifetime();
     }
