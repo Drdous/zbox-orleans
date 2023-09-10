@@ -8,3 +8,4 @@ services:
     hostname: localhost
     ports:
       - 10000:10000
+      - 10002:10002

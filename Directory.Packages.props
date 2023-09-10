@@ -13,6 +13,8 @@
     <PackageVersion Include="Microsoft.Orleans.Core.Abstractions" Version="7.2.1" />
     <PackageVersion Include="Microsoft.Orleans.Client" Version="7.2.1" />
     <PackageVersion Include="Microsoft.Orleans.Persistence.AzureStorage" Version="7.2.1" />
+    <PackageVersion Include="Microsoft.Orleans.Reminders" Version="7.2.1" />
+    <PackageVersion Include="Microsoft.Orleans.Reminders.AzureStorage" Version="7.2.1" />
     <PackageVersion Include="Microsoft.Orleans.Runtime" Version="7.2.1" />
     <PackageVersion Include="Microsoft.Orleans.Server" Version="7.2.1" />
     <PackageVersion Include="Microsoft.Orleans.Sdk" Version="7.2.1" />

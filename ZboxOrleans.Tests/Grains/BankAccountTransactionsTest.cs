@@ -7,7 +7,7 @@ namespace ZboxOrleans.Tests.Grains;
 public sealed class BankAccountTransactionsTest : BaseGrainTest
 {
     [Fact]
-    public async Task TestTransactionsConsistency()
+    public async Task TestTransactionsConsistency_WithParallelCalls_DataShouldBeConsistent()
     {
         var accounts = new List<(Guid AccountId, string UserName)>
         {
@@ -18,7 +18,7 @@ public sealed class BankAccountTransactionsTest : BaseGrainTest
             ( Guid.Parse("8cbc15d0-c751-4bc6-9559-96a5ff94f41d"), "Angelina Jolie" ),
         };
         
-        await InitializeIfNotExist();
+        await InitializeIfNotExistAsync();
         var transactionClient = GetService<ITransactionClient>();
 
         var random = Random.Shared;

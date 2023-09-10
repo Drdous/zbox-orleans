@@ -18,7 +18,7 @@ public sealed class StatelessWorkerGrainTest : BaseGrainTest
     [Fact]
     public async Task TestStatelessWorkerGrainMaximumThroughput_WriteInfoMessageAsOutput()
     {
-        await InitializeIfNotExist();
+        await InitializeIfNotExistAsync();
 
         const int numberOfCalls = 1_000_000;
 
