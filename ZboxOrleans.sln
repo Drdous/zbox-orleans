@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.Core", "src\Zbo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{70E767FC-2925-4803-8DCD-42DF54C1BB94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.Tests", "tests\ZboxOrleans.Tests\ZboxOrleans.Tests.csproj", "{A4922A33-2B6D-4C3B-8C09-A07DA5C18D58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZboxOrleans.Tests", "ZboxOrleans.Tests\ZboxOrleans.Tests.csproj", "{A4922A33-2B6D-4C3B-8C09-A07DA5C18D58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,7 +8,6 @@ public sealed class PocoGrain : IGrainBase, IPocoGrain
 {
     public IGrainContext GrainContext { get; }
     
-    
     public PocoGrain(IGrainContext context)
     {
         GrainContext = context;
