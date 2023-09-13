@@ -27,6 +27,9 @@ public static class SiloHostBuilder
 
                 silo.UseTransactions();
                 silo.UseAzureTableReminderService(AzureTableConnection);
+                
+                // 10. Orleans Dashboard: Integrujte svůj projekt s Orleans Dashboard pro lepší monitorování a ladění.
+                silo.UseDashboard(options => options.HostSelf = true);
             })
             .UseConsoleLifetime();
     }

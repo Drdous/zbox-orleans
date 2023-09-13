@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ZboxOrleans.Client;
 using ZboxOrleans.Silo;
 using Xunit;
 
@@ -10,7 +9,6 @@ namespace ZboxOrleans.Tests.Grains;
 public abstract class BaseGrainTest : IDisposable
 {
     private IHost? _siloHost;
-    private IHost? _clientHost;
     protected IGrainFactory? GrainFactory;
 
     protected async Task<TGrain> GetGrainAsync<TGrain>(Guid primaryKey) where TGrain : IGrainWithGuidKey
@@ -21,7 +19,7 @@ public abstract class BaseGrainTest : IDisposable
 
     protected async Task InitializeIfNotExistAsync()
     {
-        if (_siloHost is null || _clientHost is null)
+        if (_siloHost is null)
         {
             await InitializeHostsAsync();
             GrainFactory ??= GetService<IGrainFactory>();
@@ -30,22 +28,18 @@ public abstract class BaseGrainTest : IDisposable
     
     protected T GetService<T>() where T : notnull
     {
-        return _clientHost!.Services.GetRequiredService<T>();
+        return _siloHost!.Services.GetRequiredService<T>();
     }
  
     // I know it's not the right way to test (dependency on running services, azurite..), but it's better for me in terms of debugging purposes and looking to the blob storage.
     private async Task InitializeHostsAsync()
     {
-        _siloHost = SiloHostBuilder.Create().Build();
-        _clientHost = ClientHostBuilder.Create().Build();
-            
+        _siloHost = SiloHostBuilder.Create().Build();         
         await _siloHost.StartAsync();
-        await _clientHost.StartAsync();
     }
 
     public void Dispose()
     {
-        _clientHost?.Dispose();
         _siloHost?.Dispose();
     }
 }

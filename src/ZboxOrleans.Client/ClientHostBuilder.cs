@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -12,6 +13,7 @@ public static class ClientHostBuilder
             {
                 clientBuilder.UseLocalhostClustering();
                 clientBuilder.UseTransactions();
+                clientBuilder.Services.AddHostedService<MaxThroughputService>();
             })
             .ConfigureLogging(logging => logging.AddConsole())
             .UseConsoleLifetime();
