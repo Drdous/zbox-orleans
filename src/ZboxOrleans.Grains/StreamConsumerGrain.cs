@@ -32,6 +32,7 @@ public sealed class StreamConsumerGrain : Grain, IStreamConsumerGrain
         //     }));
         
         
+        // 14. Pub/Sub vzor: Využijte Orleans pro implementaci publish/subscribe vzoru pro asynchronní zpracování událostí.
         // Implicit subscription
         await stream.SubscribeAsync(
             async (data, _) =>
