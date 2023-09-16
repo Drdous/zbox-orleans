@@ -1,3 +1,13 @@
+# How to run project:
+
+1. Install Docker desktop
+2. `docker-compose up --build -d`
+3. Start Silo: `cd` Silo project/ `dotnet run` with possibility to run more silos by specifying silo port and gateway port with arguments: `dotnet run <siloPort> <gatewayPort>`
+4. Start Client: `cd` Client project/ `dotnet run`
+5. After client is started, max throughput service is started too, so be careful.
+
+Tests are mostly for debugging purposes.
+
 # Zadání úkolu
 
 Tento úkol je zaměřen na seznámení se s Microsoft Orleans a .NET 7. Cílem je demonstrovat schopnost implementovat základní cluster v Orleans a možnosti frameworku, které jsou běžné v práci s Orleans.
