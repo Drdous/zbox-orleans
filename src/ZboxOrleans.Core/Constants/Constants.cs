@@ -13,4 +13,20 @@ public static class Constants
     {
         public const string AzureBlobStorage = "azureBlobStorage";
     }
+
+    public static class Cluster
+    {
+        public const string ClusterId = "Cluster42";
+        public const string ServiceId = "MyAwesomeService";
+    }
+    
+    public static class StreamProviders
+    {
+        public const string StreamProvider = "StreamProvider";
+    }
+    
+    public static class StreamNamespaces
+    {
+        public const string Namespace1 = "Namespace1";
+    }
 }

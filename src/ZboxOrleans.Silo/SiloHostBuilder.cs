@@ -17,15 +17,17 @@ public static class SiloHostBuilder
 
     public static IHostBuilder Create(string[]? args = null)
     {
+        // To run multiple silos use dotnet run <siloPort> <gatewayPort>
         var siloEndpoint = SiloConfigHelper.GetSiloEndpointConfig(args);
         
         return Host.CreateDefaultBuilder(args)
             .UseOrleans(silo =>
             {
+                // 12. Podpora více Sil: Rozšiřte svůj projekt tak, aby podporoval více sil. Pro demonstraci stačí dvě sila.
                 silo.Configure<ClusterOptions>(options =>
                 {
-                    options.ClusterId = "Cluster42";
-                    options.ServiceId = "MyAwesomeService";
+                    options.ClusterId = Constants.Cluster.ClusterId;
+                    options.ServiceId = Constants.Cluster.ServiceId;
                 });
                 
                 silo.UseLocalhostClustering()
@@ -44,8 +46,13 @@ public static class SiloHostBuilder
                 // 10. Orleans Dashboard: Integrujte svůj projekt s Orleans Dashboard pro lepší monitorování a ladění.
                 silo.UseDashboard(options => options.HostSelf = true);
 
-                silo.ConfigureEndpoints(siloEndpoint.SiloPort, siloEndpoint.GatewayPort);
-                
+                // Question: I can't connect client either with default ports, why?
+                //silo.ConfigureEndpoints(siloEndpoint.SiloPort, siloEndpoint.GatewayPort);
+
+                silo.AddMemoryStreams(Constants.StreamProviders.StreamProvider)
+                    .AddAzureTableGrainStorage("PubSubStore",
+                    options => options.ConfigureTableServiceClient(AzureTableConnection));
+
             })
             .UseConsoleLifetime();
     }
